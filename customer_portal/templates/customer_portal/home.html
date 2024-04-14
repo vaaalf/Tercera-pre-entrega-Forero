@@ -1,0 +1,11 @@
+{% extends 'customer_portal/base.html' %}
+
+{% block title %} Customer Portal {% endblock title %}
+
+{% block content %}
+{% load static %}
+<section>
+    <h2 style="text-align: center;">Welcome to Customer Portal!</h2>
+    <img src="{% static 'customer_portal/images/customer_portal_home.jpg' %}" alt="Customer_Portal" class="center">
+</section>
+{% endblock %}

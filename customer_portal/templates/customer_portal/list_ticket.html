@@ -1,0 +1,46 @@
+{% extends 'customer_portal/base.html' %}
+
+{% block title %} Tickets {% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <!-- Botón de Crear Reserva -->
+        <div class="justify-content-between align-items-center mb-12">
+            <h2 class="mb-0">Tickets</h2>
+            <!-- Botón de Crear Reserva alineado a la derecha -->
+            <a href="{% url 'ticket-create' %}" class="btn btn-dark">Create Tickets</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ticket Name</th>
+                    <th scope="col">Client</th>
+                    <th scope="col">Due date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if tickets %}
+                {% for ticket in tickets %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ ticket.ticket_name }}</td>
+                    <td>{{ ticket.client }}</td>
+                    <td>{{ ticket.due_date }}</td>
+                    <td>
+                        <a href="{% url 'ticket-detail' ticket.id %}" class="btn btn-info btn-sm">Detail</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <tr>
+                    <td colspan="7">No tickets found.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

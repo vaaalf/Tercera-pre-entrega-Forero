@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Customer Portal {% endblock title %}</title>
+    <!-- Bootstrap CSS CDN (Bootstrap 4 used as an example) -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="{% static 'customer_portal/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'customer_portal/css/customer_portal_style.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <div class="container">
+          <div class="header__logo">
+          <h1 class="header__logo__name">Portal</h1>
+        </div>
+        <nav class="header__nav">
+          <ul class="header__menu">
+            <li class="header__item"><a href="{% url 'company-list' %}" class="header__link">Company</a></li>
+            <li class="header__item"><a href="{% url 'client-list' %}" class="header__link">Client</a></li>
+            <li class="header__item"><a href="{% url 'ticket-list' %}" class="header__link">Ticket</a></li>     
+            <li class="header__item"><a href="{% url 'ticket-finder' %}" class="header__link">Find</a></li>
+          </ul>
+        </nav>
+        </div>
+      </header>
+    <!-- Main content -->
+    <div class="container mt-4">
+        {% block content %}
+        <!-- Content goes here -->
+        {% endblock content %}
+    </div>
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
